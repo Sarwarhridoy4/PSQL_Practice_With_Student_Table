@@ -99,16 +99,24 @@ ADD email VARCHAR;
 erDiagram
 STUDENTS {
     int id PK "Auto-incremented primary key"
-    varchar roll "Unique roll number"
-    varchar name "Student name"
-    int age "Student age"
-    varchar department "e.g., CSE, EEE"
-    float score "Student score"
-    varchar status "e.g., passed, failed"
-    varchar email "Student email"
-    date last_login "Last login date"
+    varchar roll "2023001, 2023002, 2023003"
+    varchar name "Alice, Bob, Charlie"
+    int age "20, 21, 22"
+    varchar department "CSE, EEE"
+    float score "85.5, 78.0, 65.0"
+    varchar status "passed, failed"
+    varchar email "NULL"
+    date last_login "2024-06-01, 2024-06-02, 2024-06-03"
 }
 ```
+
+#### Data Table Visualization (After Adding `email` Column)
+
+| id | roll    | name    | age | department | score | status | email | last_login   |
+|----|---------|---------|-----|------------|-------|--------|-------|-------------|
+| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL  | 2024-06-01  |
+| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL  | 2024-06-02  |
+| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL  | 2024-06-03  |
 
 ### ALTER TABLE students
 
@@ -135,6 +143,14 @@ STUDENTS {
 }
 ```
 
+#### Data Table Visualization (After Renaming `email` to `student_email`)
+
+| id | roll    | name    | age | department | score | status | student_email | last_login   |
+|----|---------|---------|-----|------------|-------|--------|---------------|-------------|
+| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          | 2024-06-01  |
+| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          | 2024-06-02  |
+| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          | 2024-06-03  |
+
 ### ALTER TABLE students
 
 ```psql
@@ -160,50 +176,29 @@ STUDENTS {
 }
 ```
 
-```psql
-CREATE TABLE courses (
-course_id SERIAL PRIMARY KEY,
-course_name VARCHAR NOT NULL,
-department VARCHAR
-);
-```
+#### Data Table Visualization (After Adding UNIQUE Constraint to `student_email`)
 
-- Explanation: This command creates a new courses table with three columns: `course_id` (an auto-incrementing primary key), `course_name` (a required string), and department (an optional string). The `SERIAL` type ensures unique, sequential IDs.
+| id | roll    | name    | age | department | score | status | student_email | last_login   |
+|----|---------|---------|-----|------------|-------|--------|---------------|-------------|
+| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          | 2024-06-01  |
+| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          | 2024-06-02  |
+| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          | 2024-06-03  |
 
-#### Mermaid Table Visualization (After Creating `courses` Table)
+#### Data Table Visualization (After Creating `courses` Table)
 
-```mermaid
-erDiagram
-COURSES {
-    int course_id PK "Auto-incremented primary key"
-    varchar course_name "Course name (required)"
-    varchar department "Department (optional)"
-}
-```
+| course_id | course_name | department |
+|-----------|------------|------------|
+|           |            |            |
 
-### ALTER TABLE students
+*No data has been inserted yet. The table is ready to accept new course records.*
 
-```psql
-DROP COLUMN last_login;
-```
+#### Data Table Visualization (After Dropping `last_login` Column)
 
-- Explanation: This command permanently removes the `last_login` column from the students table, deleting all associated data. Ensure the column is no longer needed before executing.
-
-#### Mermaid Table Visualization (After Dropping `last_login` Column)
-
-```mermaid
-erDiagram
-STUDENTS {
-    int id PK "Auto-incremented primary key"
-    varchar roll "Unique roll number"
-    varchar name "Student name"
-    int age "Student age"
-    varchar department "e.g., CSE, EEE"
-    float score "Student score"
-    varchar status "e.g., passed, failed"
-    varchar student_email "Unique student email"
-}
-```
+| id | roll    | name    | age | department | score | status | student_email |
+|----|---------|---------|-----|------------|-------|--------|---------------|
+| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          |
+| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          |
+| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          |
 
 ### Mermaid Syntax for students Table
 
