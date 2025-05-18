@@ -67,14 +67,48 @@ INSERT INTO students (roll, name, age, department, score, status, last_login) VA
 
 - Explanation: Inserts three sample student records into the `students` table for testing and demonstration.
 
-### 1. Add a column email (VARCHAR) to the students table
+#### Mermaid Table Visualization (After Insert)
 
+```mermaid
+erDiagram
+STUDENTS {
+    int id PK "Auto-incremented primary key"
+    varchar roll "2023001, 2023002, 2023003"
+    varchar name "Alice, Bob, Charlie"
+    int age "20, 21, 22"
+    varchar department "CSE, EEE"
+    float score "85.5, 78.0, 65.0"
+    varchar status "passed, failed"
+    date last_login "2024-06-01, 2024-06-02, 2024-06-03"
+}
+```
+
+
+
+### 1. Add a column email (VARCHAR) to the students table
 ```psql
 ALTER TABLE students
 ADD email VARCHAR;
 ```
 
-- Explanation: This command adds a new email column of type `VARCHAR` to the students table. The column is nullable, and existing rows will have `NULL` values in this column. 2. Rename the column `email` to `student_email`
+- Explanation: This command adds a new email column of type `VARCHAR` to the students table. The column is nullable, and existing rows will have `NULL` values in this column.
+
+#### Mermaid Table Visualization (After Adding `email` Column)
+
+```mermaid
+erDiagram
+STUDENTS {
+    int id PK "Auto-incremented primary key"
+    varchar roll "Unique roll number"
+    varchar name "Student name"
+    int age "Student age"
+    varchar department "e.g., CSE, EEE"
+    float score "Student score"
+    varchar status "e.g., passed, failed"
+    varchar email "Student email"
+    date last_login "Last login date"
+}
+```
 
 ### ALTER TABLE students
 
@@ -82,7 +116,24 @@ ADD email VARCHAR;
 RENAME COLUMN email TO student_email;
 ```
 
-Explanation: This command renames the email column to `student_email` for clarity or consistency. The data in the column remains unchanged. 3. Add a `UNIQUE` constraint to `student_email`
+Explanation: This command renames the email column to `student_email` for clarity or consistency. The data in the column remains unchanged.
+
+#### Mermaid Table Visualization (After Renaming `email` to `student_email`)
+
+```mermaid
+erDiagram
+STUDENTS {
+    int id PK "Auto-incremented primary key"
+    varchar roll "Unique roll number"
+    varchar name "Student name"
+    int age "Student age"
+    varchar department "e.g., CSE, EEE"
+    float score "Student score"
+    varchar status "e.g., passed, failed"
+    varchar student_email "Student email"
+    date last_login "Last login date"
+}
+```
 
 ### ALTER TABLE students
 
@@ -90,7 +141,24 @@ Explanation: This command renames the email column to `student_email` for clarit
 ADD CONSTRAINT unique_student_email UNIQUE (student_email);
 ```
 
-Explanation: This command adds a `UNIQUE` constraint named unique_student_email to the `student_email` column, ensuring no duplicate email addresses exist. If duplicates are present, the command will fail until resolved. 4. Create a new table courses with a `PRIMARY KEY`
+Explanation: This command adds a `UNIQUE` constraint named `unique_student_email` to the `student_email` column, ensuring no duplicate email addresses exist. If duplicates are present, the command will fail until resolved.
+
+#### Mermaid Table Visualization (After Adding UNIQUE Constraint to `student_email`)
+
+```mermaid
+erDiagram
+STUDENTS {
+    int id PK "Auto-incremented primary key"
+    varchar roll "Unique roll number"
+    varchar name "Student name"
+    int age "Student age"
+    varchar department "e.g., CSE, EEE"
+    float score "Student score"
+    varchar status "e.g., passed, failed"
+    varchar student_email "Unique student email"
+    date last_login "Last login date"
+}
+```
 
 ```psql
 CREATE TABLE courses (
@@ -100,7 +168,18 @@ department VARCHAR
 );
 ```
 
-- Explanation: This command creates a new courses table with three columns: `course_id` (an auto-incrementing primary key), `course_name` (a required string), and department (an optional string). The `SERIAL` type ensures unique, sequential IDs. 5. Drop the `last_login` column from the students table.
+- Explanation: This command creates a new courses table with three columns: `course_id` (an auto-incrementing primary key), `course_name` (a required string), and department (an optional string). The `SERIAL` type ensures unique, sequential IDs.
+
+#### Mermaid Table Visualization (After Creating `courses` Table)
+
+```mermaid
+erDiagram
+COURSES {
+    int course_id PK "Auto-incremented primary key"
+    varchar course_name "Course name (required)"
+    varchar department "Department (optional)"
+}
+```
 
 ### ALTER TABLE students
 
@@ -109,6 +188,22 @@ DROP COLUMN last_login;
 ```
 
 - Explanation: This command permanently removes the `last_login` column from the students table, deleting all associated data. Ensure the column is no longer needed before executing.
+
+#### Mermaid Table Visualization (After Dropping `last_login` Column)
+
+```mermaid
+erDiagram
+STUDENTS {
+    int id PK "Auto-incremented primary key"
+    varchar roll "Unique roll number"
+    varchar name "Student name"
+    int age "Student age"
+    varchar department "e.g., CSE, EEE"
+    float score "Student score"
+    varchar status "e.g., passed, failed"
+    varchar student_email "Unique student email"
+}
+```
 
 ### Mermaid Syntax for students Table
 
