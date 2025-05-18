@@ -1,0 +1,99 @@
+Students Table Database Tasks
+This document provides the SQL commands executed in PostgreSQL (psql) for the table alteration tasks on the students table and the creation of a new courses table. It includes explanations for each task and Mermaid syntax to visualize the students table structure after the alterations.
+Table Structure Overview
+The students table initially has the following structure:
+
+Column Name
+Description
+
+id
+Auto-incremented primary key
+
+roll
+Unique roll number for each student
+
+name
+Name of the student
+
+age
+Age of the student
+
+department
+Student’s department (e.g., CSE, EEE)
+
+score
+Score achieved by the student
+
+status
+Academic status (e.g., passed, failed)
+
+last_login
+Last login date
+
+SQL Commands and Explanations
+Below are the SQL commands for the tasks, along with explanations of what each command does.
+
+Add a column email (VARCHAR) to the students table
+ALTER TABLE students
+ADD email VARCHAR;
+
+Explanation: This command modifies the students table by adding a new column named email with a VARCHAR data type. The column will initially contain NULL values for existing rows and can store variable-length strings (e.g., email addresses).
+
+Rename the column email to student_email
+ALTER TABLE students
+RENAME COLUMN email TO student_email;
+
+Explanation: This command renames the email column to student_email in the students table. The data in the column remains unchanged, and only the column name is updated for clarity or consistency.
+
+Add a UNIQUE constraint to student_email
+ALTER TABLE students
+ADD CONSTRAINT unique_student_email UNIQUE (student_email);
+
+Explanation: This command adds a UNIQUE constraint named unique_student_email to the student_email column, ensuring that all values in this column are unique across the table. If any duplicate emails exist, this command will fail unless the duplicates are resolved first.
+
+Create a new table courses with a PRIMARY KEY
+CREATE TABLE courses (
+course_id SERIAL PRIMARY KEY,
+course_name VARCHAR NOT NULL,
+department VARCHAR
+);
+
+Explanation: This command creates a new table named courses with three columns: course_id (an auto-incrementing integer serving as the primary key), course_name (a non-null variable-length string), and department (an optional variable-length string). The SERIAL type ensures course_id automatically increments for each new row.
+
+Drop the last_login column from the students table
+ALTER TABLE students
+DROP COLUMN last_login;
+
+Explanation: This command removes the last_login column from the students table. All data in this column is permanently deleted, and the table structure is updated to reflect the change. Ensure this column is no longer needed before executing.
+
+Mermaid Syntax for students Table
+The Mermaid syntax below visualizes the students table structure after applying all alterations (adding student_email, dropping last_login):
+erDiagram
+STUDENTS {
+int id PK "Auto-incremented primary key"
+varchar roll "Unique roll number"
+varchar name "Student name"
+int age "Student age"
+varchar department "e.g., CSE, EEE"
+float score "Student score"
+varchar status "e.g., passed, failed"
+varchar student_email "Unique student email"
+}
+
+How to Use in psql
+
+Connect to your PostgreSQL database:
+psql -U <username> -d <database_name>
+
+Execute the SQL commands:Copy and paste each SQL command into the psql terminal in the order listed above. Ensure the students table exists before running the alteration commands. If any command fails (e.g., due to duplicate emails when adding the UNIQUE constraint), resolve the issue and retry.
+
+Verify changes:Use the following command to check the updated students table structure:
+\d students
+
+Notes
+
+The commands assume the students table already exists in the database.
+The courses table is created as a new table with a primary key.
+The Mermaid diagram reflects the final students table structure after all alterations.
+Ensure you have appropriate permissions to modify the database schema in psql.
+If the student_email column contains duplicate values, the UNIQUE constraint will fail. Use a query like SELECT student_email, COUNT(_) FROM students GROUP BY student_email HAVING COUNT(_) > 1; to identify duplicates and resolve them before applying the constraint.
