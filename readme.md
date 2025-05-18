@@ -21,6 +21,52 @@ The students table initially has the following structure:
 
 Below are the SQL commands for the tasks, each followed by an explanation of its purpose.
 
+### 0. Create the Database, Table, and Insert Sample Data
+
+#### Create a new database
+
+```psql
+CREATE DATABASE studentdb;
+```
+
+- Explanation: This command creates a new PostgreSQL database named `studentdb`.
+
+#### Connect to the new database
+
+```psql
+\c studentdb
+```
+
+- Explanation: Switches your session to the `studentdb` database.
+
+#### Create the students table
+
+```psql
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    roll VARCHAR UNIQUE,
+    name VARCHAR,
+    age INT,
+    department VARCHAR,
+    score FLOAT,
+    status VARCHAR,
+    last_login DATE
+);
+```
+
+- Explanation: This command creates the initial `students` table with the specified columns.
+
+#### Insert sample data into students table
+
+```psql
+INSERT INTO students (roll, name, age, department, score, status, last_login) VALUES
+('2023001', 'Alice', 20, 'CSE', 85.5, 'passed', '2024-06-01'),
+('2023002', 'Bob', 21, 'EEE', 78.0, 'passed', '2024-06-02'),
+('2023003', 'Charlie', 22, 'CSE', 65.0, 'failed', '2024-06-03');
+```
+
+- Explanation: Inserts three sample student records into the `students` table for testing and demonstration.
+
 ### 1. Add a column email (VARCHAR) to the students table
 
 ```psql
