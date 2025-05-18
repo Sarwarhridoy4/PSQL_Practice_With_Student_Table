@@ -85,15 +85,14 @@ STUDENTS {
 
 #### Data Table Visualization (After Insert)
 
-| id | roll    | name    | age | department | score | status | last_login   |
-|----|---------|---------|-----|------------|-------|--------|-------------|
-| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | 2024-06-01  |
-| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | 2024-06-02  |
-| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | 2024-06-03  |
-
-
+| id  | roll    | name    | age | department | score | status | last_login |
+| --- | ------- | ------- | --- | ---------- | ----- | ------ | ---------- |
+| 1   | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | 2024-06-01 |
+| 2   | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | 2024-06-02 |
+| 3   | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | 2024-06-03 |
 
 ### 1. Add a column email (VARCHAR) to the students table
+
 ```psql
 ALTER TABLE students
 ADD email VARCHAR;
@@ -120,11 +119,11 @@ STUDENTS {
 
 #### Data Table Visualization (After Adding `email` Column)
 
-| id | roll    | name    | age | department | score | status | email | last_login   |
-|----|---------|---------|-----|------------|-------|--------|-------|-------------|
-| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL  | 2024-06-01  |
-| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL  | 2024-06-02  |
-| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL  | 2024-06-03  |
+| id  | roll    | name    | age | department | score | status | email | last_login |
+| --- | ------- | ------- | --- | ---------- | ----- | ------ | ----- | ---------- |
+| 1   | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL  | 2024-06-01 |
+| 2   | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL  | 2024-06-02 |
+| 3   | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL  | 2024-06-03 |
 
 ### ALTER TABLE students
 
@@ -153,11 +152,11 @@ STUDENTS {
 
 #### Data Table Visualization (After Renaming `email` to `student_email`)
 
-| id | roll    | name    | age | department | score | status | student_email | last_login   |
-|----|---------|---------|-----|------------|-------|--------|---------------|-------------|
-| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          | 2024-06-01  |
-| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          | 2024-06-02  |
-| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          | 2024-06-03  |
+| id  | roll    | name    | age | department | score | status | student_email | last_login |
+| --- | ------- | ------- | --- | ---------- | ----- | ------ | ------------- | ---------- |
+| 1   | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          | 2024-06-01 |
+| 2   | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          | 2024-06-02 |
+| 3   | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          | 2024-06-03 |
 
 ### ALTER TABLE students
 
@@ -186,27 +185,27 @@ STUDENTS {
 
 #### Data Table Visualization (After Adding UNIQUE Constraint to `student_email`)
 
-| id | roll    | name    | age | department | score | status | student_email | last_login   |
-|----|---------|---------|-----|------------|-------|--------|---------------|-------------|
-| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          | 2024-06-01  |
-| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          | 2024-06-02  |
-| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          | 2024-06-03  |
+| id  | roll    | name    | age | department | score | status | student_email | last_login |
+| --- | ------- | ------- | --- | ---------- | ----- | ------ | ------------- | ---------- |
+| 1   | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          | 2024-06-01 |
+| 2   | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          | 2024-06-02 |
+| 3   | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          | 2024-06-03 |
 
 #### Data Table Visualization (After Creating `courses` Table)
 
 | course_id | course_name | department |
-|-----------|------------|------------|
-|           |            |            |
+| --------- | ----------- | ---------- |
+|           |             |            |
 
-*No data has been inserted yet. The table is ready to accept new course records.*
+_No data has been inserted yet. The table is ready to accept new course records._
 
 #### Data Table Visualization (After Dropping `last_login` Column)
 
-| id | roll    | name    | age | department | score | status | student_email |
-|----|---------|---------|-----|------------|-------|--------|---------------|
-| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          |
-| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          |
-| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          |
+| id  | roll    | name    | age | department | score | status | student_email |
+| --- | ------- | ------- | --- | ---------- | ----- | ------ | ------------- |
+| 1   | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | NULL          |
+| 2   | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | NULL          |
+| 3   | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | NULL          |
 
 ### Mermaid Syntax for students Table
 
@@ -248,11 +247,102 @@ psql -U <username> -d <database_name>
 - The Mermaid diagram reflects the students table structure after all changes.
 - Ensure you have schema modification permissions in psql.
 - If adding the UNIQUE constraint fails due to duplicate student*email values, identify duplicates with:SELECT student_email, COUNT(*)
+- Resolve duplicates before reapplying the constraint.
+
+## Filtering & Logical Operations
+
+### 1. Find all students who have a score greater than 80 and not null
 
 ```psql
-FROM students
-GROUP BY student*email
-HAVING COUNT(*) > 1;
+SELECT * FROM students
+WHERE score > 80 AND score IS NOT NULL;
 ```
 
-- Resolve duplicates before reapplying the constraint.
+### 2. Exclude students from a specific department using NOT
+
+```psql
+SELECT * FROM students
+WHERE department NOT IN ('EEE');
+```
+
+_Replace `'EEE'` with the department you want to exclude._
+
+### 3. Fetch students whose names start with 'A' using LIKE and ILIKE
+
+```psql
+-- Case-sensitive
+SELECT * FROM students
+WHERE name LIKE 'A%';
+
+-- Case-insensitive
+SELECT * FROM students
+WHERE name ILIKE 'A%';
+```
+
+### 4. Select all students whose age is between 18 and 25
+
+```psql
+SELECT * FROM students
+WHERE age BETWEEN 18 AND 25;
+```
+
+### 5. Retrieve rows using IN for a specific set of roll numbers
+
+```psql
+SELECT * FROM students
+WHERE roll IN ('2023001', '2023003');
+```
+
+_Replace the roll numbers as needed._
+
+---
+
+## Aggregate Functions
+
+### 1. Count how many students exist in the students table
+
+```psql
+SELECT COUNT(*) FROM students;
+```
+
+### 2. Find the average score of students in a specific department
+
+```psql
+SELECT AVG(score) FROM students
+WHERE department = 'CSE';
+```
+
+_Replace `'CSE'` with your department._
+
+### 3. Get the maximum and minimum age of all students
+
+```psql
+SELECT MAX(age) AS max_age, MIN(age) AS min_age FROM students;
+```
+
+---
+
+## Update & Delete Operations
+
+### 1. Update the status of students who scored less than 50 to 'failed'
+
+```psql
+UPDATE students
+SET status = 'failed'
+WHERE score < 50;
+```
+
+### 2. Delete students who have not logged in since last year
+
+```psql
+DELETE FROM students
+WHERE last_login < (CURRENT_DATE - INTERVAL '1 year');
+```
+
+### 3. Use LIMIT and OFFSET to fetch the second page of results (5 per page)
+
+```psql
+SELECT * FROM students
+ORDER BY id
+LIMIT 5 OFFSET 5;
+```
