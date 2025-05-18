@@ -83,6 +83,14 @@ STUDENTS {
 }
 ```
 
+#### Data Table Visualization (After Insert)
+
+| id | roll    | name    | age | department | score | status | last_login   |
+|----|---------|---------|-----|------------|-------|--------|-------------|
+| 1  | 2023001 | Alice   | 20  | CSE        | 85.5  | passed | 2024-06-01  |
+| 2  | 2023002 | Bob     | 21  | EEE        | 78.0  | passed | 2024-06-02  |
+| 3  | 2023003 | Charlie | 22  | CSE        | 65.0  | failed | 2024-06-03  |
+
 
 
 ### 1. Add a column email (VARCHAR) to the students table
