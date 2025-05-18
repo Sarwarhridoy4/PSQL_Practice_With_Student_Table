@@ -82,7 +82,7 @@ varchar student_email "Unique student email"
 }
 ```
 
-- Using the Commands in psql
+## Using the Commands in psql
 
 ### To execute these commands in PostgreSQL:
 
@@ -111,4 +111,4 @@ GROUP BY student*email
 HAVING COUNT(*) > 1;
 ```
 
-Resolve duplicates before reapplying the constraint.
+- Resolve duplicates before reapplying the constraint.
